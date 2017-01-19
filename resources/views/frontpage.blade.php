@@ -3,19 +3,14 @@
     <head>
         <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
 
         <style>
-            html, body {
-                height: 100%;
-            }
 
             body {
-                margin: 20px;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
+                margin: 0px;
+                padding: 30px;
+                font-weight: 400;
                 font-family: 'Lato';
             }
 
@@ -46,15 +41,24 @@
 
             <br>
 
+            @if( isset($rootNode) )
             <table>
-            @include("recursive", array("pid" => 0, "level" => 0 )  )
+            @include("recursive", array("node" => $rootNode, "level" => 0 )  )
+            </table>
+            @endif
+
+            <br><br>
+
+            <table>
+            @include("iterative", array('categories' => $categories_i) )
             </table>
 
             <br><br>
 
             <table>
-            @include("iterative"  )
+            @include("iterative", array('categories' => $categories_iq) )
             </table>
+
 
 
         </div>

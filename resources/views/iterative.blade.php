@@ -1,9 +1,9 @@
-@if( isset( $categories_i ) )
+@if( isset( $categories ) )
 
-@foreach( $categories_i as $item )
+@foreach( $categories as $item )
 
 <tr>
-	<td  style="padding-left: {{ $item['level'] * 20 }}px; " >{{ $item['title'] }}</td>
+	<td  style="padding-left: {{ $item['depth'] * 20 }}px; " >{{ $item['title'] }}</td>
 	<td ><a href="/?pid={{ $item["id"] }}">Create child</a></td>
 </tr>
 

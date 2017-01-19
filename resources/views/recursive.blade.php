@@ -1,14 +1,11 @@
-@if( isset( $categories[$pid] ) )
+@if( isset( $node->children ) )
 
-@foreach( $categories[$pid] as $item )
-
-<tr>
-	<td  style="padding-left: {{ $level * 20 }}px; " >{{ $item['title'] }}</td>
-	<td ><a href="/?pid={{ $item["id"] }}">Create child</a></td>
-	@include("recursive", array("pid" => $item['id'], "level" => $level+1 )  )
-</tr>
-
+@foreach( $node->children as $item )
+	<tr>
+		<td  style="padding-left: {{ $level * 20 }}px; " >{{ $item->data->title }}</td>
+		<td ><a href="/?pid={{ $item->data->id }}">Create child</a></td>
+	</tr>
+	@include("recursive", array("node" => $item, "level" => $level+1 )  )
 @endforeach
-
 
 @endif
