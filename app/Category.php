@@ -118,8 +118,7 @@ class Category extends Model
 
         $categoriesArray = [];
         $node = & $rootNode;
-        $que = [];
-        $que[] = $node;
+        $que = [$node];
 
         while (count($que)) {
 
